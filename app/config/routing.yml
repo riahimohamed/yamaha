@@ -1,0 +1,19 @@
+gestion_yamaha:
+    resource: "@GestionYamahaBundle/Resources/config/routing.yml"
+    prefix:   /
+
+GestionYamahaBundle_employer:
+        resource: "@GestionYamahaBundle/Resources/config/routing/employer.yml"
+        prefix:   /employer
+
+GestionYamahaBundle_produit:
+        resource: "@GestionYamahaBundle/Resources/config/routing/produit.yml"
+        prefix:   /produit
+
+GestionYamahaBundle_stock:
+        resource: "@GestionYamahaBundle/Resources/config/routing/stock.yml"
+        prefix:   /stock
+
+GestionYamahaBundle_commande:
+        resource: "@GestionYamahaBundle/Resources/config/routing/commande.yml"
+        prefix:   /commande

@@ -1,0 +1,211 @@
+{% extends '::base.html.twig' %}
+{% block title %}Employer{% endblock %}
+
+{% block body %}
+
+    <section class="worker">
+
+        <div class="col-sm-2 menu-left">
+            <ul class="nav navbar-nav">
+                <li><a href="#" data-toggle="modal" data-target="#add"><i class="glyphicon glyphicon-plus"></i> Ajouter</a></li>
+            </ul>
+            <div class="border-right"></div>
+        </div>
+
+        <div class="col-sm-10 content">
+            <h2 class="text-head">Gestion Employeur</h2>
+
+            <div class="search-id pull-right">
+                {% render(controller('GestionYamahaBundle:Employer:recherche')) %}
+            </div>
+
+            <div class="gest-work">
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>CIN</th>
+                        <th>date d'embauche</th>
+                        <th>Fin contrat</th>
+                        <th>Salair</th>
+                        <th>grade</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if(entities|length != 0) %}
+                    {% for entity in entities %}
+                        <tr>
+                            <td>{{ entity.id }}</td>
+                            <td>{{ entity.nom }}</td>
+                            <td>{{ entity.prenom }}</td>
+                            <td>{{ entity.cin }}</td>
+                            <td>{% if entity.embauche %}{{ entity.embauche|date('Y-m-d') }}{% endif %}</td>
+                            <td>{% if entity.finContrat %}{{ entity.finContrat|date('Y-m-d') }}{% endif %}</td>
+                            <td>{{ entity.salair }} dt</td>
+                            <td>
+                                {% if(entity.grade == 1) %}
+                                    Ingénieur
+                                {% elseif(entity.grade == 2) %}
+                                    Technicien
+                                {% elseif(entity.grade == 3) %}
+                                    Ouvrier
+
+                                {% endif %}
+                            </td>
+                            <td><a href="{{ path('employer_show', { 'id': entity.id }) }}"><i class="glyphicon glyphicon-eye-open"></i></a></td>
+                        </tr>
+                    {% endfor %}
+                    {% else %}
+                        <td colspan="100%"><h4 class="text-info text-center">Aucun Emploiyeur</h4></td>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+            {{ searche|default }}
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Ajoutez Employeur</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        {{ render(controller('GestionYamahaBundle:Employer:create')) }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel2">Modifier Employeur</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <form class="form-horizontal" action="#" method="post" role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Nom" value="Amin">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Prénom" value="Ben Ali">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="CIN" value="0895821">
+                            </div>
+                            <div class="form-group">
+                                <input type="date" class="form-control" placeholder="date d'embauche" value="28/05/2014">
+                            </div>
+                            <div class="form-group">
+                                <input type="date" class="form-control" placeholder="Fin contrat" value="01/01/2016">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control" placeholder="Salair" value="1050">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Grade" value="ingénieur">
+                            </div>
+
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-primary">Modifier</button>
+                            </div>
+                            <br>
+                            <br>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="del" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="alert alert-danger modal-title" id="myModalLabel3">Supprimer Employeur</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <form class="form-horizontal" action="#" method="post" role="form">
+
+                            <div>
+                                <h4 class="text-danger">voulez vous supprimer l'employeur <strong>Nom : Amin ben Ali</strong></h4>
+                            </div>
+
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                            </div>
+                            <br>
+                            <br>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!--<h1>Employer list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Cin</th>
+                <th>Embauche</th>
+                <th>Fincontrat</th>
+                <th>Salair</th>
+                <th>Grade</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('employer_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nom }}</td>
+                <td>{{ entity.prenom }}</td>
+                <td>{{ entity.cin }}</td>
+                <td>{% if entity.embauche %}{{ entity.embauche|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.finContrat %}{{ entity.finContrat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.salair }}</td>
+                <td>{{ entity.grade }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('employer_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('employer_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('employer_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>-->
+    {% endblock %}

@@ -1,0 +1,36 @@
+<nav class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navheader">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ path('gestion_yamaha_homepage') }}"><img src="{{ asset('img/logo.bmp') }}" width="60" height="55"></a>
+            </div>
+
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav frt-menu">
+                <li class="active-menu"><a href="{{ path('employer') }}">Employeur <span class="sr-only">(current)</span></a></li>
+                <li><a href="{{ path('produit') }}">Produit</a></li>
+                <li><a href="{{ path('stock') }}">Stock</a></li>
+                <li><a href="{{ path('commande') }}">Commande</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav cnx navbar-right">
+                <li><a href="{{ path('gestion_yamaha_homepage') }}">Déconnexion</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav cnx navbar-right">
+                <li><a href="{{ path('register') }}">Inscription</a></li>
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>

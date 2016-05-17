@@ -1,0 +1,25 @@
+<form action="{{ path('commande_create') }}" method="post" {{ form_enctype(form) }}>
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    <div>
+        {{ form_errors(form.modele) }}
+        {{ form_widget(form.modele, { 'attr': {'class': 'form-control'} }) }}
+    </div><br>
+
+    <div>
+        {{ form_errors(form.date) }}
+        {{ form_widget(form.date, { 'attr': {'class': 'form-control', 'placeholder': "date"} }) }}
+    </div><br>
+
+
+    <div class="pull-right">
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+    </div>
+    <br>
+    <br>
+
+    {{ form_end(form) }}
+
+</form>

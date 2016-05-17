@@ -1,0 +1,12 @@
+gestion_yamaha_homepage:
+    pattern:  /
+    defaults: { _controller: GestionYamahaBundle:Default:index }
+
+login:
+    pattern:  /login
+    defaults: { _controller: GestionYamahaBundle:Default:login }
+
+register:
+    pattern:  /register
+    defaults: { _controller: GestionYamahaBundle:Default:register }
+

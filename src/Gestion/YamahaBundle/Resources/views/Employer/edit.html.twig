@@ -1,0 +1,64 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <div class="col-sm-8 col-sm-offset-2 aff">
+        <h2>Modifier Employeur ID {{ entity.id }}</h2>
+
+        <form action="{{ path('employer_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+
+            {{ form_start(edit_form) }}
+            {{ form_errors(edit_form) }}
+            <input type="hidden" name="_method" value="PUT" />
+            <div>
+                {{ form_errors(edit_form.nom) }}
+                {{ form_widget(edit_form.nom, { 'attr': {'class': 'form-control', 'placeholder': "Nom"} }) }}
+            </div><br>
+
+            <div>
+                {{ form_errors(edit_form.prenom) }}
+                {{ form_widget(edit_form.prenom, { 'attr': {'class': 'form-control', 'placeholder': "Prénom"} }) }}
+            </div><br>
+
+            <div>
+                {{ form_errors(edit_form.cin) }}
+                {{ form_widget(edit_form.cin, { 'attr': {'class': 'form-control', 'placeholder': "CIN"} }) }}
+            </div><br>
+
+            <div>
+                {{ form_errors(edit_form.embauche) }}
+                {{ form_widget(edit_form.embauche, { 'attr': {'class': 'form-control'} }) }}
+            </div><br>
+
+            <div>
+                {{ form_errors(edit_form.finContrat) }}
+                {{ form_widget(edit_form.finContrat, { 'attr': {'class': 'form-control'} }) }}
+            </div><br>
+
+            <div>
+                {{ form_errors(edit_form.salair) }}
+                {{ form_widget(edit_form.salair, { 'attr': {'class': 'form-control', 'placeholder': "Salair"} }) }}
+            </div><br>
+
+            <div>
+                {{ form_errors(edit_form.embauche) }}
+                {{ form_widget(edit_form.embauche, { 'attr': {'class': 'form-control'} }) }}
+            </div><br>
+
+            <div>
+                {{ form_errors(edit_form.grade) }}
+                {{ form_widget(edit_form.grade, { 'attr': {'class': 'form-control'} }) }}
+            </div><br>
+
+            <div class="pull-right">
+                <button type="submit" class="btn btn-primary">Modifier</button>
+            </div>
+            <br>
+            <br>
+
+            {{ form_end(edit_form) }}
+
+        </form>
+
+    </div>
+
+{% endblock %}

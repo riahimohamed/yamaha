@@ -1,0 +1,34 @@
+commande:
+    pattern:  /
+    defaults: { _controller: "GestionYamahaBundle:Commande:index" }
+
+recherche_commande:
+    pattern:  /
+    defaults: { _controller: "GestionYamahaBundle:Commande:index" }
+
+commande_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "GestionYamahaBundle:Commande:show" }
+
+commande_new:
+    pattern:  /new
+    defaults: { _controller: "GestionYamahaBundle:Commande:new" }
+
+commande_create:
+    pattern:  /create
+    defaults: { _controller: "GestionYamahaBundle:Commande:create" }
+    requirements: { _method: post }
+
+commande_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "GestionYamahaBundle:Commande:edit" }
+
+commande_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "GestionYamahaBundle:Commande:update" }
+    requirements: { _method: post|put }
+
+commande_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "GestionYamahaBundle:Commande:delete" }
+    requirements: { _method: post|delete }

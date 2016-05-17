@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <div class="col-sm-10 col-sm-offset-1 aff">
+        <h1>Produit</h1>
+
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ entity.reference }}</td>
+            </tr>
+            <tr>
+                <th>Type de produit</th>
+                <td>
+                    {% if(entity.type == 1) %}
+                        Faisceaux radiateurs
+                    {% elseif(entity.type == 2) %}
+                        radiateur complet
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Nomber de piéces</th>
+                <td>{{ entity.nbPiece }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <ul class="nav navbar-nav record_actions">
+            <li>
+                <a href="{{ path('produit') }}">
+                    Reteurn a la liste
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('produit_edit', { 'id': entity.id }) }}">
+                    Modifier
+                </a>
+            </li>
+            <li>
+                <form action="{{ path('produit_delete', { 'id': entity.id }) }}" method="post">
+                    <input type="hidden" name="_method" value="DELETE" />
+                    {{ form_widget(delete_form) }}
+                    <button type="submit" class="btn btn-warning">Supprimer</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

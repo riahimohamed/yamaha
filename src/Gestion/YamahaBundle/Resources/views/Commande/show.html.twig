@@ -1,0 +1,62 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <div class="col-sm-10 col-sm-offset-1 aff">
+
+        <h1>Commande</h1>
+
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ entity.id }}</td>
+                </tr>
+                <tr>
+                    <th>Modele</th>
+                    <td>
+                        {% if(entity.modele == 1) %}
+                            bobine cuivre
+                        {% elseif(entity.modele == 2) %}
+                            bobine laiton
+                        {% elseif(entity.modele == 3) %}
+                            etain
+                        {% elseif(entity.modele == 4) %}
+                            feuille de tole laiton
+                        {% elseif(entity.modele == 5) %}
+                            feuille de tole acier
+                        {% elseif(entity.modele == 6) %}
+                            etain en baguette
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Date</th>
+                    <td>{{ entity.date|date('Y-m-d') }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ul class="nav navbar-nav record_actions">
+            <li>
+                <a href="{{ path('commande') }}">
+                    Reteurn a la liste
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('commande_edit', { 'id': entity.id }) }}">
+                    Modifier
+                </a>
+            </li>
+            <li>
+                <form action="{{ path('commande_delete', { 'id': entity.id }) }}" method="post">
+                    <input type="hidden" name="_method" value="DELETE" />
+                    {{ form_widget(delete_form) }}
+                    <button type="submit" class="btn btn-warning">Supprimer</button>
+                </form>
+            </li>
+        </ul>
+
+    </div>
+
+{% endblock %}

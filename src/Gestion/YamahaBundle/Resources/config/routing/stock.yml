@@ -1,0 +1,34 @@
+stock:
+    pattern:  /
+    defaults: { _controller: "GestionYamahaBundle:Stock:index" }
+
+recherche_stock:
+    pattern:  /
+    defaults: { _controller: "GestionYamahaBundle:Stock:index" }
+
+stock_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "GestionYamahaBundle:Stock:show" }
+
+stock_new:
+    pattern:  /new
+    defaults: { _controller: "GestionYamahaBundle:Stock:new" }
+
+stock_create:
+    pattern:  /create
+    defaults: { _controller: "GestionYamahaBundle:Stock:create" }
+    requirements: { _method: post }
+
+stock_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "GestionYamahaBundle:Stock:edit" }
+
+stock_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "GestionYamahaBundle:Stock:update" }
+    requirements: { _method: post|put }
+
+stock_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "GestionYamahaBundle:Stock:delete" }
+    requirements: { _method: post|delete }

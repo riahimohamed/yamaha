@@ -1,0 +1,75 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+<div class="col-sm-10 col-sm-offset-1 aff">
+    <h1>Employer</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ entity.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ entity.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Cin</th>
+                <td>{{ entity.cin }}</td>
+            </tr>
+            <tr>
+                <th>date d'embauche</th>
+                <td>{{ entity.embauche|date('Y-m-d') }}</td>
+            </tr>
+            <tr>
+                <th>Fin contrat</th>
+                <td>{{ entity.finContrat|date('Y-m-d') }}</td>
+            </tr>
+            <tr>
+                <th>Salair</th>
+                <td>{{ entity.salair }}</td>
+            </tr>
+            <tr>
+                <th>Grade</th>
+                <td>
+                    {% if(entity.grade == 1) %}
+                        Ingénieur
+                    {% elseif(entity.grade == 2) %}
+                        Technicien
+                    {% elseif(entity.grade == 3) %}
+                        Ouvrier
+
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul class="nav navbar-nav record_actions">
+        <li>
+            <a href="{{ path('employer') }}">
+                Reteurn a la liste
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('employer_edit', { 'id': entity.id }) }}">
+                Modifier
+            </a>
+        </li>
+        <li>
+            <form action="{{ path('employer_delete', { 'id': entity.id }) }}" method="post">
+                <input type="hidden" name="_method" value="DELETE" />
+                {{ form_widget(delete_form) }}
+                <button type="submit" class="btn btn-warning">Supprimer</button>
+            </form>
+        </li>
+    </ul>
+
+    </div>
+{% endblock %}

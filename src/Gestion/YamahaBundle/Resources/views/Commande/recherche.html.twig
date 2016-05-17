@@ -1,0 +1,6 @@
+<form action="{{ path('recherche_commande') }}" method="post" class="navbar-form navbar-left" role="search">
+    <div class="form-group">
+        {{ form_widget(form.recherche, { 'attr': {'class': 'form-control', 'placeholder': 'Recherche par id'} }) }}
+    </div>
+    <button type="submit" class="btn"><span class="glyphicon glyphicon-search"></span></button>
+</form>

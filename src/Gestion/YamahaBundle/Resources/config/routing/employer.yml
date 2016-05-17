@@ -1,0 +1,34 @@
+employer:
+    pattern:  /
+    defaults: { _controller: "GestionYamahaBundle:Employer:index" }
+
+recherche_employer:
+    pattern:  /recherche
+    defaults: { _controller: "GestionYamahaBundle:Employer:index" }
+
+employer_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "GestionYamahaBundle:Employer:show" }
+
+employer_new:
+    pattern:  /new
+    defaults: { _controller: "GestionYamahaBundle:Employer:new" }
+
+employer_create:
+    pattern:  /create
+    defaults: { _controller: "GestionYamahaBundle:Employer:create" }
+    requirements: { _method: post }
+
+employer_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "GestionYamahaBundle:Employer:edit" }
+
+employer_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "GestionYamahaBundle:Employer:update" }
+    requirements: { _method: post|put }
+
+employer_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "GestionYamahaBundle:Employer:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,34 @@
+<form action="{{ path('produit_create') }}" method="post" {{ form_enctype(form) }}>
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    <div>
+        {{ form_errors(form.reference) }}
+        {{ form_widget(form.reference, { 'attr': {'class': 'form-control', 'placeholder': "Référance"} }) }}
+    </div><br>
+
+    <div>
+        {{ form_errors(form.type) }}
+        {{ form_widget(form.type, { 'attr': {'class': 'form-control', 'placeholder': "Type de produit"} }) }}
+    </div><br>
+
+    <div>
+        {{ form_errors(form.nbPiece) }}
+        {{ form_widget(form.nbPiece, { 'attr': {'class': 'form-control', 'placeholder': "Nombre de piéces"} }) }}
+    </div><br>
+
+    <div>
+        {{ form_errors(form.prix) }}
+        {{ form_widget(form.prix, { 'attr': {'class': 'form-control', 'placeholder': "Prix"} }) }}
+    </div><br>
+
+    <div class="pull-right">
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+    </div>
+    <br>
+    <br>
+
+    {{ form_end(form) }}
+
+</form>

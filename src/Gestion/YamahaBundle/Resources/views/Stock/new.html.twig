@@ -1,0 +1,29 @@
+<form action="{{ path('stock_create') }}" method="post" {{ form_enctype(form) }}>
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    <div>
+        {{ form_errors(form.quantity) }}
+        {{ form_widget(form.quantity, { 'attr': {'class': 'form-control', 'placeholder': "Quantité"} }) }}
+    </div><br>
+
+    <div>
+        {{ form_errors(form.modele) }}
+        {{ form_widget(form.modele, { 'attr': {'class': 'form-control', 'placeholder': "Modele"} }) }}
+    </div><br>
+
+    <div>
+        {{ form_errors(form.nbrModele) }}
+        {{ form_widget(form.nbrModele, { 'attr': {'class': 'form-control', 'placeholder': "Nombre de modeles"} }) }}
+    </div><br>
+
+    <div class="pull-right">
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+    </div>
+    <br>
+    <br>
+
+    {{ form_end(form) }}
+
+</form>

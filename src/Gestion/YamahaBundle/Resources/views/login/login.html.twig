@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" type="text/css">
+</head>
+
+<body class="login-body">
+<section class="login-page">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="login-page">
+                <div class="form">
+                    <h3><span class="glyphicon glyphicon-user"></span></h3>
+                    <div class="alert alert-danger {{ check }}">Utilisateur ou mot de passe incorrect</div>
+                    <form action="{{ path('gestion_yamaha_homepage') }}" method="post" name="form" class="login-form">
+                        {{ form_start(form) }}
+                        {{ form_errors(form) }}
+
+                        <div>
+                            {{ form_errors(form.username) }}
+                            {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': "Nom d'utitlisateur"} }) }}
+                        </div><br>
+
+                        <div>
+                            {{ form_errors(form.password) }}
+                            {{ form_widget(form.password, { 'attr': {'class': 'form-control', 'placeholder': "Mot de passe"} }) }}
+                        </div><br>
+
+                        <div>
+                            {{ form_errors(form.email) }}
+                            {{ form_widget(form.email, { 'attr': {'class': 'hide'} }) }}
+                        </div><br>
+
+                        <button type="submit" name="login">Connecter</button>
+
+                        {{ form_end(form) }}
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<script src="{{ asset('js/jquery-1.12.0.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
+</body>
+</html>

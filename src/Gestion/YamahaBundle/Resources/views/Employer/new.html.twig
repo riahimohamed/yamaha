@@ -1,0 +1,49 @@
+<form action="{{ path('employer_create') }}" method="post" {{ form_enctype(form) }}>
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    <div>
+        {{ form_errors(form.nom) }}
+        {{ form_widget(form.nom, { 'attr': {'class': 'form-control', 'placeholder': 'Nom'} }) }}
+    </div><br>
+
+    <div>
+        {{ form_errors(form.prenom) }}
+        {{ form_widget(form.prenom, { 'attr': {'class': 'form-control', 'placeholder': 'Prénom'} }) }}
+    </div><br>
+
+    <div>
+        {{ form_errors(form.cin) }}
+        {{ form_widget(form.cin, { 'attr': {'class': 'form-control', 'placeholder': 'CIN'} }) }}
+    </div><br>
+
+    <div>
+        {{ form_errors(form.embauche) }}
+        {{ form_widget(form.embauche, { 'attr': {'class': 'form-control', 'placeholder': "Date d'embauche"} }) }}
+    </div><br>
+
+    <div>
+        {{ form_errors(form.finContrat) }}
+        {{ form_widget(form.finContrat, { 'attr': {'class': 'form-control', 'placeholder': 'Date fin contrat'} }) }}
+    </div><br>
+
+    <div>
+        {{ form_errors(form.salair) }}
+        {{ form_widget(form.salair, { 'attr': {'class': 'form-control', 'placeholder': 'Salair'} }) }}
+    </div><br>
+
+    <div>
+        {{ form_errors(form.grade) }}
+        {{ form_widget(form.grade, { 'attr': {'class': 'form-control', 'placeholder': 'Garde'} }) }}
+    </div><br>
+
+    <div class="pull-right">
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </div>
+    <br>
+    <br>
+
+    {{ form_end(form) }}
+
+</form>
